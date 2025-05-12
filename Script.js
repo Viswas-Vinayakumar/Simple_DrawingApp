@@ -34,7 +34,7 @@ bgColorPicker.addEventListener('input', () => {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 });
 
-// ✅ Corrected event position function with bounding rect
+
 function getEventPos(e) {
   const rect = canvas.getBoundingClientRect();
   return {
