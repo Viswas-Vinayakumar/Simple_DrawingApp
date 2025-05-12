@@ -34,10 +34,12 @@ bgColorPicker.addEventListener('input', () => {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 });
 
+// ✅ Corrected event position function with bounding rect
 function getEventPos(e) {
+  const rect = canvas.getBoundingClientRect();
   return {
-    x: e.touches ? e.touches[0].clientX : e.offsetX,
-    y: e.touches ? e.touches[0].clientY : e.offsetY
+    x: (e.touches ? e.touches[0].clientX : e.clientX) - rect.left,
+    y: (e.touches ? e.touches[0].clientY : e.clientY) - rect.top
   };
 }
 
