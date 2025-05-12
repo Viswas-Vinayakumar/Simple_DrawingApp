@@ -79,4 +79,21 @@ canvas.addEventListener('mouseout', stopDrawing);
 canvas.addEventListener('touchstart', startDrawing);
 canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('touchend', stopDrawing);
-canvas.addEventListener('touchcancel', stopDrawing
+canvas.addEventListener('touchcancel', stopDrawing);
+
+document.getElementById('drawBtn').addEventListener('click', () => {
+  drawMode = true;
+});
+
+document.getElementById('eraseBtn').addEventListener('click', () => {
+  drawMode = false;
+});
+
+document.getElementById('clearBtn').addEventListener('click', clearCanvas);
+
+document.getElementById('saveBtn').addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.download = 'drawing.png';
+  link.href = canvas.toDataURL();
+  link.click();
+});
