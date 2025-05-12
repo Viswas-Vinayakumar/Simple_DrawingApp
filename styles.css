@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  background: #eee;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #ddd;
+}
+
+button:active {
+  background: #bbb;
+}
+
+input[type="color"], input[type="range"] {
+  margin: 0 10px;
+  padding: 5px;
+  background: #eee;
+  border-radius: 5px;
+}
+
+canvas {
+  flex: 1;
+  touch-action: none;
+  display: block;
+  padding: 20px;
+  margin: 20px;
+  background-color: #ffffff;
+}
+
+h1 {
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+  background: #222;
+  color: #fff;
+  font-size: 24px; /* Default font size */
+}
