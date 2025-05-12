@@ -69,6 +69,32 @@ function clearCanvas() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+
+canvas.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  isDrawing = true;
+  const touch = e.touches[0];
+  ctx.beginPath();
+  ctx.moveTo(touch.clientX, touch.clientY);
+});
+
+canvas.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  if (!isDrawing) return;
+  const touch = e.touches[0];
+  ctx.lineWidth = 5;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = drawMode ? 'black' : 'white';
+  ctx.lineTo(touch.clientX, touch.clientY);
+  ctx.stroke();
+});
+
+canvas.addEventListener('touchend', (e) => {
+  e.preventDefault();
+  isDrawing = false;
+  ctx.closePath();
+});
+
 document.getElementById('drawBtn').addEventListener('click', () => {
   drawMode = true;
 });
@@ -87,3 +113,5 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   link.href = canvas.toDataURL();
   link.click();
 });
+
+
